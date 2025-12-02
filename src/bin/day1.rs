@@ -14,16 +14,16 @@ fn parsing(next_move: String) -> i16 {
 }
 
 fn part1_2(lines: impl Iterator<Item = String>) -> (i16, i16, i16) {
-    lines.fold((0, 0, START_POS), |acc, next_move| {
+    lines.fold((0, 0, START_POS), |(landed, passed, position), next_move| {
         let ticks = parsing(next_move);
-        let (landed, passed, position) = acc;
         let new_position = position + ticks;
         let passed = if new_position <= 0 {
             passed + (position != 0) as i16 - (new_position / DIAL_SIZE)
         } else {
             passed + new_position / DIAL_SIZE
         };
-        (landed + (new_position == 0) as i16, passed, new_position.rem_euclid(DIAL_SIZE))
+        let new_position = new_position.rem_euclid(DIAL_SIZE);
+        (landed + (new_position == 0) as i16, passed, new_position)
     })
 }
 
