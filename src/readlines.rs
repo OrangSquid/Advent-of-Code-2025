@@ -18,3 +18,10 @@ where
 {
     read_lines(filename).collect()
 }
+
+pub fn read_lines_to_vec_char<P>(filename: P) -> Vec<Vec<char>>
+where
+    P: AsRef<Path>,
+{
+    read_lines(filename).map(|x| x.chars().collect()).collect()
+}

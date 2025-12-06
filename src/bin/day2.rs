@@ -15,7 +15,7 @@ fn part2(number: u64, divisor: u64, repeats: u32, digits_in_number: u32) -> bool
 
 fn part1_2(start: u64, end: u64) -> (u64, u64) {
     (start..=end).fold((0, 0), |(acc1, acc2), value| {
-        let size = (value.ilog10() + 1) as usize;
+        let size = (value.ilog10() + (value % 10 != 0) as u32) as usize;
         let result1 = if size % 2 != 0 {
             acc1
         } else {
