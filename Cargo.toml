@@ -4,3 +4,6 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
+union-find = "0.4.3"
+bitvec = "1.0.1"
+good_lp = { version = "1.14.2", default-features = false, features = ["lpsolve"] }

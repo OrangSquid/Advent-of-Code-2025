@@ -1,5 +1,3 @@
-use std::result;
-
 use aoc_2025::readlines::read_lines_to_vec_char;
 
 fn part1(lines: &[Vec<char>], col: usize, line: usize) -> bool {
